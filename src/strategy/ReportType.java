@@ -1,7 +1,7 @@
 package strategy;
 
 public enum ReportType {
-    TOPIC(1, "帖子"), COMMENT(2, "评论"), USER(3, "用户");
+    TOPIC(1, "帖子"), COMMENT(2, "评论"), USER(3, "用户"), PICTURE(4, "图片");
 
     private int code;
 

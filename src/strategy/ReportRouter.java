@@ -9,7 +9,8 @@ public class ReportRouter {
         strategies = new ReportStrategy[]{
                 new ReportUserStrategy(),
                 new ReportCommentStrategy(),
-                new ReportTopicStrategy()};
+                new ReportTopicStrategy(),
+                new ReportPictureStrategy()};
     }
 
     public void processReport(ReportContext context) {

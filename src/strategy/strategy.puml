@@ -1,0 +1,38 @@
+@startuml
+class           ReportRouter{
+ - []ReportStrategy strategies
+}
+
+class           ReportContext{
+    - int reportTypeCode
+    - String reportTypeCode
+    - String reason
+}
+
+
+enum            ReportType{
+   - int code
+   + static ReportType getByCode()
+}
+
+interface       ReportStrategy{
+    + ReportType supportType()
+    + void processReport(ReportContext context)
+}
+
+class ReportTopicStrategy
+class ReportCommentStrategy
+class ReportUserStrategy
+
+ReportStrategy <|-- ReportTopicStrategy
+ReportStrategy <|-- ReportCommentStrategy
+ReportStrategy <|-- ReportUserStrategy
+
+ReportRouter "1" *-- "many" ReportStrategy: 包含 >
+ReportRouter -- ReportStrategy : 调用 >
+
+ReportContext "1" *-- "1" ReportType: 包含 >
+
+ReportRouter - ReportContext : 接收 >
+
+@enduml
